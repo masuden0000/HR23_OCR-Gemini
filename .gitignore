@@ -6,6 +6,11 @@
 # API Keys and sensitive data
 secrets.json
 
+# Documentation files (keep local only)
+dokumentasi_fungsi.md
+flowchart_ocr.html
+panduan_detail.md
+
 # Python
 __pycache__/
 *.py[cod]
