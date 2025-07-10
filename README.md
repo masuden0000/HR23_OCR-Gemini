@@ -63,11 +63,9 @@ Program akan:
 ```
 📂 OCR/
 ├── � main.py                       # Entry point MVC version (RECOMMENDED)
-├── 📄 ocr_with_gemini_improved.py   # Original script (legacy)
 ├── 🔒 .env                         # API key (jangan di-commit!)
 ├── 📄 requirements.txt             # Library yang dibutuhkan
 ├── 📄 README.md                    # Panduan ini
-├── 📄 MVC_ARCHITECTURE.md          # Dokumentasi MVC architecture
 ├── 
 ├── 📁 models/                      # MODEL LAYER
 │   ├── __init__.py
