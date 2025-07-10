@@ -1,13 +1,16 @@
-# 🤖 OCR dengan Gemini AI
+# 🤖 OCR dengan Gemini AI (MVC Version)
 
-Program OCR (Optical Character Recognition) yang bisa membaca teks dari gambar dengan bantuan AI Gemini untuk memperbaiki typo secara otomatis.
+Program OCR (Optical Character Recognition) yang bisa membaca teks dari gambar dengan bantuan AI Gemini untuk memperbaiki typo secara otomatis. **Direfactor menggunakan MVC pattern** untuk better code organization.
 
 ## ✨ Fitur
-- � **Baca teks dari gambar** - Extract teks dari foto dokumen
+- 📖 **Baca teks dari gambar** - Extract teks dari foto dokumen
 - 🤖 **Koreksi typo otomatis** - AI Gemini memperbaiki kesalahan OCR
-- � **Deteksi mode terbaik** - Cari setting optimal untuk setiap gambar
-- 🇮� **Support Bahasa Indonesia** - Optimized untuk teks Indonesia
-- � **Simpan hasil** - Export ke file teks dengan detail lengkap
+- 🎯 **Deteksi mode terbaik** - Cari setting optimal untuk setiap gambar
+- 🇮🇩 **Support Bahasa Indonesia** - Optimized untuk teks Indonesia
+- 💾 **Simpan hasil** - Export ke file teks dengan detail lengkap
+- 🏗️ **MVC Architecture** - Clean, maintainable, dan extensible code
+- 🔄 **Batch Processing** - Process multiple images sekaligus
+- 🛠️ **API Mode** - Programmatic usage untuk integration
 
 ## 🚀 Cara Menggunakan
 
@@ -26,6 +29,25 @@ GEMINI_API_KEY=your_api_key_here
 - Format yang didukung: `.jpg`, `.png`, `.bmp`, `.tiff`, `.gif`, `.webp`
 
 ### 3. Jalankan Program
+
+#### Mode Interactive (Recommended)
+```bash
+python main.py
+```
+
+#### Mode Batch (Process All Images)
+```bash
+python main.py batch           # Default folder 'gambar', PSM 6
+python main.py batch images 11 # Custom folder dan PSM
+```
+
+#### Mode Single Image
+```bash
+python main.py single gambar/test.jpg    # PSM default
+python main.py single gambar/test.jpg 11 # Custom PSM
+```
+
+#### Legacy Mode (Original Script)
 ```bash
 python ocr_with_gemini_improved.py
 ```
@@ -37,20 +59,42 @@ Program akan:
 4. Memproses gambar dan memperbaiki teks
 5. Menyimpan hasil ke file
 
-## 📁 File dalam Project
+## 📁 Project Structure (MVC)
 ```
 📂 OCR/
-├── 📁 gambar/                     # Folder untuk gambar input
-│   ├── gambar.jpg                 # Contoh gambar
-│   └── gambar2.jpeg               # Contoh gambar lain
-├── � .env                        # API key (jangan di-commit!)
-├── 📄 ocr_with_gemini_improved.py # Program utama
-├── 📄 requirements.txt            # Library yang dibutuhkan
-├── 📄 README.md                   # Panduan ini
-├── 📄 dokumentasi_fungsi.md       # Dokumentasi detail fungsi
-├── � panduan_detail.md          # Panduan lengkap
-└── � flowchart_ocr.html         # Visualisasi alur kerja
+├── � main.py                       # Entry point MVC version (RECOMMENDED)
+├── 📄 ocr_with_gemini_improved.py   # Original script (legacy)
+├── 🔒 .env                         # API key (jangan di-commit!)
+├── 📄 requirements.txt             # Library yang dibutuhkan
+├── 📄 README.md                    # Panduan ini
+├── 📄 MVC_ARCHITECTURE.md          # Dokumentasi MVC architecture
+├── 
+├── 📁 models/                      # MODEL LAYER
+│   ├── __init__.py
+│   └── ocr_model.py               # Business logic & data processing
+├── 
+├── 📁 views/                       # VIEW LAYER
+│   ├── __init__.py
+│   └── ocr_view.py                # User interface & presentation
+├── 
+├── 📁 controllers/                 # CONTROLLER LAYER
+│   ├── __init__.py
+│   └── ocr_controller.py          # Workflow coordination
+├── 
+└── 📁 gambar/                      # Folder untuk gambar input
+    ├── gambar.jpg                 # Contoh gambar
+    └── gambar2.jpeg               # Contoh gambar lain
 ```
+
+## 🏗️ MVC Architecture
+
+**Model-View-Controller** pattern untuk clean code organization:
+
+- **Model** (`models/`): Business logic, data processing, API calls
+- **View** (`views/`): User interface, input/output, presentation
+- **Controller** (`controllers/`): Workflow coordination, application logic
+
+👉 **Lihat `MVC_ARCHITECTURE.md` untuk dokumentasi detail arsitektur MVC.**
 
 ## ⚙️ Mode OCR (PSM)
 
